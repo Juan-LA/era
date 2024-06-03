@@ -1,14 +1,11 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(SplashScreen());
 }
 
-void count(){
-  print("000000");
-}
 
-class MyApp extends StatelessWidget {
+class SplashScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -32,22 +29,35 @@ class MyApp extends StatelessWidget {
                   )
               ),
               alignment: Alignment.centerLeft,
-              padding: const EdgeInsets.only(left: 15),
-                child:
-                Text(
-                  "Be the change\nBe the start of a new era",
-                  style: TextStyle(
-                    fontWeight: FontWeight.w700,
-                    fontSize: 35,
-                    fontFamily: "Avenir",
-                    color: Colors.white,
-
-
+              padding: const EdgeInsets.only(left: 15, top: 350),
+              child: Column(
+                children: [
+                  Text(
+                    "Be the change\nBe the start of a new era",
+                    style: TextStyle(
+                      fontWeight: FontWeight.w700,
+                      fontSize: 35,
+                      fontFamily: "Avenir",
+                      color: Colors.white,
+                    ),
                   ),
-                ),
+                  Spacer(),
+                  Container(child:
+                  Padding(padding: const EdgeInsets.only(bottom: 40),
+                  child: ElevatedButton(onPressed: (){print("Hi");},
+                    child:Text("Ciao"),
+                  ),)
+                  )
 
 
-            ),
+                ],
+              ),
+            )
+
+
+
+    ),
+
 
 
 
@@ -70,7 +80,7 @@ class MyApp extends StatelessWidget {
             )
           ],
         ),*/
-        ),
+
 
       );
 
