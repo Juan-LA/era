@@ -1,6 +1,12 @@
 import 'package:a_new_era/design/ui.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_carousel_widget/flutter_carousel_widget.dart';
+
+
+var actionsTilesTitles = ["Ask AI", "Health plants", "Divide trash"];
+
+
 
 void main() {
   runApp(const MyApp());
@@ -28,6 +34,7 @@ class MyApp extends StatelessWidget {
         Container(
           decoration: homeWallp,
           child: CustomScrollView(
+
             slivers: [
               CupertinoSliverNavigationBar(
                 backgroundColor: Colors.transparent,
@@ -37,20 +44,54 @@ class MyApp extends StatelessWidget {
               SliverFillRemaining(
 
                   child:
-                  Padding(
-                    padding: const EdgeInsets.only(left: 15, right: 15, top: 10),
-                    child: Align(
-                      alignment: Alignment.topLeft,
+                  Align(
+                      alignment: Alignment.centerLeft,
                       child: Column(
+                        
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+
+
                         children: [
                           //Quick actions subtitle
-                          Text("Quick actions", style: styleH1,),
+                          Padding(
+                            padding: const EdgeInsets.only(left: 15, top: 10, bottom: 10),
+                            child: Text("Quick actions", style: styleH1)
+                          ),
+
+                          //List with buttons
+                          Padding(
+                            padding: const EdgeInsets.only(bottom: 10),
+                            child: Container(
+                              height: 50,
+
+                              child: ListView(
+
+                                scrollDirection: Axis.horizontal,
+
+                                children: [
+
+                                  actionTile(actionsTilesTitles[0]),
+                                  actionTile(actionsTilesTitles[1]),
+                                  actionTile(actionsTilesTitles[2]),
+
+                                ],
+                              ),
+                            )
+                          ),
+
+
+                          Padding(
+                            padding: const EdgeInsets.only(left: 15, right: 15),
+                            child: Divider(color: Colors.white,)
+                          ),
+
+
                           Spacer()
                         ],
                       ),
                     ),
-                  )
+
               )
             ],
           ),
