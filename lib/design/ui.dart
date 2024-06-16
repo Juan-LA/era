@@ -44,3 +44,32 @@ Widget actionTile(String text){
   return tile;
 }
 
+
+//Task tile
+var rrBorder = RoundedRectangleBorder(borderRadius: BorderRadius.circular(20));
+
+Widget taskTile(BuildContext context){
+
+  var bR = BorderRadius.all(Radius.circular(20.0));
+
+  return Container(
+    //padding: const EdgeInsets.only(top: 10, bottom: 10),
+    height: 200,
+    width: MediaQuery.of(context).size.width ,
+    decoration: ShapeDecoration(
+      color: Colors.white12,
+      shape: rrBorder,
+
+    ),
+
+    child: CupertinoButton(
+      borderRadius: bR,
+      color: Colors.white12,
+      onPressed: () { print("Il task è stato selezionato"); },
+      child: Text("Prova"),
+    ),
+
+  );
+
+}
+

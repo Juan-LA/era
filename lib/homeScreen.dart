@@ -83,7 +83,24 @@ class MyApp extends StatelessWidget {
 
                           Padding(
                             padding: const EdgeInsets.only(left: 15, right: 15),
-                            child: Divider(color: Colors.white,)
+                            child:
+                              Column(
+
+                                crossAxisAlignment: CrossAxisAlignment.start,
+
+                                children: [
+                                  //Divider
+                                  Divider(color: Colors.white,),
+
+                                  //Task title
+                                  Padding(padding: const EdgeInsets.only(top: 10, bottom: 10),
+                                  child: Text("Tasks", style: styleH1)),
+
+                                  //Tasks' tiles
+                                  taskTile(context),
+
+                                ],
+                              )
                           ),
 
 
