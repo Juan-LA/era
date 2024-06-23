@@ -9,11 +9,11 @@ var actionsTilesTitles = ["Ask AI", "Health plants", "Divide trash"];
 
 
 void main() {
-  runApp(const MyApp());
+  runApp(const Home());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class Home extends StatelessWidget {
+  const Home({super.key});
 
 
   // This widget is the root of your application.

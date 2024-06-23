@@ -1,10 +1,15 @@
 import 'dart:ui';
 
+import 'package:a_new_era/deprecated/home.dart';
 import 'package:a_new_era/deprecated/splashscreen.dart';
+import 'package:a_new_era/design/ui.dart';
+import 'package:a_new_era/homeScreen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_carousel_widget/flutter_carousel_widget.dart';
 
+
+var bR = BorderRadius.all(Radius.circular(20.0));
 
 void main(){
   runApp(MaterialApp(home:InitialScreen()));
@@ -26,6 +31,8 @@ String obtainPhrase(int nPhrase){
 }
 
 class InitialScreen extends StatelessWidget{
+
+
   @override
   Widget build(BuildContext context){
     return MaterialApp(
@@ -66,9 +73,37 @@ class InitialScreen extends StatelessWidget{
 
                         ),
                         items: [1,2,3].map((i){
-                          return Builder(
+                          if(i!=3){
+                            return Builder(
                             builder: (BuildContext context) {
                               return Container(
+                                width: MediaQuery.of(context).size.width,
+                                margin: EdgeInsets.all(25),
+                                //EdgeInsets.symmetric(horizontal: 20.0),
+                                alignment: Alignment.centerLeft,
+                                decoration: BoxDecoration(
+                                ),
+                                child:
+
+                                Column(
+                                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(obtainPhrase(i), style: TextStyle(fontSize: 25.0, color: Colors.white, fontWeight: FontWeight.w700, fontFamily:
+                                    "Avenir"),)
+
+
+                                  ],
+                                ),
+
+
+                              );
+                            },
+                          );
+                          } else {
+                            return Builder(
+                              builder: (BuildContext context) {
+                                return Container(
                                   width: MediaQuery.of(context).size.width,
                                   margin: EdgeInsets.all(25),
                                   //EdgeInsets.symmetric(horizontal: 20.0),
@@ -77,12 +112,49 @@ class InitialScreen extends StatelessWidget{
                                   ),
                                   child:
 
-                                  Text(obtainPhrase(i), style: TextStyle(fontSize: 25.0, color: Colors.white, fontWeight: FontWeight.w700, fontFamily:
-                                  "Avenir"),)
+                                  Column(
 
-                              );
-                            },
-                          );
+                                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    children: [
+
+                                      Text(obtainPhrase(i), style: TextStyle(fontSize: 25.0, color: Colors.white, fontWeight: FontWeight.w700, fontFamily:
+                                      "Avenir"),),
+                                      Container(
+
+                                        //padding: const EdgeInsets.only(top: 20),
+                                        width: 300,
+                                        height: 80,
+
+                                        child:
+                                          CupertinoButton(
+                                            borderRadius: bR,
+                                            child: Text("Let's start →", style: styleH1,),
+                                            color: Colors.white12,
+                                            onPressed: (){
+                                            Navigator.push(
+                                            context,
+                                            MaterialPageRoute(builder: (context) => const Home()),
+                                            );
+                                          }
+                                          )
+                                        ,
+
+                                      ),
+
+
+
+                                    ],
+                                  ),
+
+
+                                );
+                              },
+                            );
+                          }
+
+
+
                         }
                         ).toList(),
 
