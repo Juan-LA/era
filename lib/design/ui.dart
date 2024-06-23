@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import '../plant.dart';
+
 var homeWallp = BoxDecoration(
     gradient: LinearGradient(
       begin: Alignment.topCenter,
@@ -14,6 +16,22 @@ var homeWallp = BoxDecoration(
       ],
     )
 );
+
+var plantWallp = BoxDecoration(
+    gradient: LinearGradient(
+      begin: Alignment.topCenter,
+      end: Alignment.bottomCenter,
+      colors: [
+        Colors.green,
+        Colors.black,
+        Colors.black,
+        //Colors.deepPurple,
+
+      ],
+    )
+);
+
+
 
 var styleTitle = TextStyle(fontSize: 40.0, color: Colors.white, fontWeight: FontWeight.w700, fontFamily:
 "Avenir");
@@ -65,7 +83,12 @@ Widget taskTile(BuildContext context){
     child: CupertinoButton(
       borderRadius: bR,
       color: Colors.white12,
-      onPressed: () { print("Il task è stato selezionato"); },
+      onPressed: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => const Plant()),
+        );
+      },
       child: Text("Prova"),
     ),
 
