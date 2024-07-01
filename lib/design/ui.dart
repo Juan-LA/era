@@ -3,33 +3,29 @@ import 'package:flutter/material.dart';
 
 import '../plant.dart';
 
-var homeWallp = BoxDecoration(
-    gradient: LinearGradient(
-      begin: Alignment.topCenter,
-      end: Alignment.bottomCenter,
-      colors: [
-        Colors.cyan,
-        Colors.black,
-        Colors.black,
-        //Colors.deepPurple,
+///To create gradient wallpapers with black at the bottom
+BoxDecoration wallP(Color color){
 
-      ],
-    )
-);
+  var wallpaper = BoxDecoration(
+      gradient: LinearGradient(
+        begin: Alignment.topCenter,
+        end: Alignment.bottomCenter,
+        colors: [
+          color,
+          Colors.black,
+          Colors.black,
+          //Colors.deepPurple,
 
-var plantWallp = BoxDecoration(
-    gradient: LinearGradient(
-      begin: Alignment.topCenter,
-      end: Alignment.bottomCenter,
-      colors: [
-        Colors.green,
-        Colors.black,
-        Colors.black,
-        //Colors.deepPurple,
+        ],
+      )
+  );
 
-      ],
-    )
-);
+  return wallpaper;
+}
+
+var homeWallp = wallP(Colors.indigo);
+var plantWallp = wallP(Colors.teal);
+
 
 
 
@@ -37,7 +33,7 @@ var styleTitle = TextStyle(fontSize: 40.0, color: Colors.white, fontWeight: Font
 "Avenir");
 var styleH1 = TextStyle(fontSize: 25.0, color: Colors.white, fontWeight: FontWeight.w700, fontFamily:
 "Avenir");
-var styleBody = TextStyle(fontSize: 20.0, color: Colors.white, fontFamily:
+var styleBody = TextStyle(fontSize: 20.0, color: Colors.white60, fontFamily:
 "Avenir");
 
 
